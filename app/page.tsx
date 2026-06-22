@@ -58,8 +58,9 @@ Based in Ho Chi Minh City, we supply the latest men's & women's trends at factor
 Hundreds of new styles. Ready to ship. Built for your profit.
 Contact us for your exclusive B2B price list.</p></article>
             <article className="reveal-on-scroll"><span>03</span><h3>OEM Manufacturing</h3><p>Have a design in mind? We bring it to life. From private label to full custom production, we manufacture to your exact specifications — fabrics, cuts, branding, and packaging included. Minimum order quantities that work for small businesses and large retailers alike.</p></article>
+            <article className="reveal-on-scroll"><span>04</span><h3>Affiliate Partner</h3><p>Earn high commissions for every client you refer. No limits, no experience required — just your network. Join now and start earning.</p></article>
           </div>
-          <Link className="pill" href="#contact">Start a project <Arrow /></Link>
+          <Link className="pill" href="#contact">Contact Us</Link>
         </section>
       </section>
 
