@@ -12,6 +12,7 @@ const items = [
 
 export default function Navigation() {
   const [active, setActive] = useState("home");
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const sections = items
@@ -34,19 +35,44 @@ export default function Navigation() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, []);
+
   return (
-    <nav aria-label="Main navigation">
-      {items.map((item) => (
-        <Link
-          key={item.id}
-          className={active === item.id ? "active" : undefined}
-          href={item.href}
-          onClick={() => setActive(item.id)}
-          aria-current={active === item.id ? "page" : undefined}
-        >
-          {item.label}
-        </Link>
-      ))}
-    </nav>
+    <div className="nav-shell">
+      <button
+        className={`mobile-menu-toggle${open ? " is-open" : ""}`}
+        type="button"
+        aria-label={open ? "Close menu" : "Open menu"}
+        aria-expanded={open}
+        aria-controls="main-navigation"
+        onClick={() => setOpen((current) => !current)}
+      >
+        <span /><span /><span />
+      </button>
+
+      <nav id="main-navigation" className={open ? "is-open" : undefined} aria-label="Main navigation">
+        {items.map((item) => (
+          <Link
+            key={item.id}
+            className={active === item.id ? "active" : undefined}
+            href={item.href}
+            onClick={() => {
+              setActive(item.id);
+              setOpen(false);
+            }}
+            aria-current={active === item.id ? "page" : undefined}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+    </div>
   );
 }
