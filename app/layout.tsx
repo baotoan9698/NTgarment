@@ -9,8 +9,9 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-  title: "NT Garment — Garment Studio Cambodia",
-  description: "Premium garment development, sampling and production in Cambodia.",
+  title: "NT Garment - Vietnam Clothing Wholesale & Retail",
+  description:
+    "Wholesale & Retail Men's Clothing: Streetwear vibes & Minimalism style in Viet Nam. High Quality, Latest Trends and Competitive Price. Accept small quantity. Overseas Shipping to Cambodia, Laos and Thailand.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
